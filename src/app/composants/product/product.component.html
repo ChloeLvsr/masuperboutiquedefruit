@@ -1,5 +1,5 @@
-<div class="container">
-    <h1 class="text-center text-warning mt-4 mb-4">La liste de mes produits : {{products.length}}</h1>
+<div class="container bg-($orange-100)">
+    <h1 class="text-center text-warning mt-4 mb-4">La liste : {{products.length}} fruits différents</h1>
 
     <!-- <div *ngFor="let produit of products">
         <p>
@@ -10,13 +10,13 @@
         <div class="col-6">
             <h6 class="text-info text-center mb-4">Rechercher par tranche de prix</h6>
             <!-- *******************************Début du formulaire de recherche par prix *****************************-->
-            <form>
+            <form (ngSubmit)="searchByPrice(price_prod)" #price_prod="ngForm">
                 <div class="row">
                     <div class="col-4">
-                        <input type="number" class="form-control" placeholder="Prix minimal">
+                        <input type="number" class="form-control" name="price_min" ngModel placeholder="Prix minimal">
                     </div>
                     <div class="col-4">
-                        <input type="number" class="form-control" placeholder="Prix maximal">
+                        <input type="number" class="form-control" name="price_max" ngModel placeholder="Prix maximal">
                     </div>
                     <div class="col-4 text-center">
                         <button type="submit" class="btn btn-primary">Recherche</button>
@@ -26,12 +26,12 @@
             <!-- ******************************Fin du formulaire de recherche par prix ****************************** -->
         </div>
         <div class="col-6">
-            <h6 class="text-info text-center mb-4">Rechercher par une mot-clés</h6>
+            <h6 class="text-info text-center mb-4">Rechercher par mot-clés</h6>
             <!-- *******************************Début du formulaire de recherche par mot-clés *****************************-->
             <form>
                 <div class="row">
                     <div class="col-8">
-                        <input type="text" class="form-control" placeholder="Mot-clé">
+                        <input type="text" class="form-control" placeholder="Mot-clé(s)">
                     </div>
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary">Recherche</button>
@@ -41,10 +41,10 @@
             <!-- ******************************Fin du formulaire de recherche par mot-clés ****************************** -->
         </div>
     </div>
-    <section class="row">
+    <section class="row mt-12">
         <div class="text-center ml-4 mb-4 pl-4 pb-4 bg-success " *ngIf="afficher">Le produit est supprimé</div>
 
-        <div class="col-4" style="height: 500px;" *ngFor="let produit of products">
+        <div class="col-4 ml-4 mb-4 mt-4 mr-4" style="height: 500px;" *ngFor="let produit of products">
             <img src="{{produit.image}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{produit.title}}</h5>

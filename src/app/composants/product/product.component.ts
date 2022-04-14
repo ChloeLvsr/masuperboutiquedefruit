@@ -31,10 +31,19 @@ export class ProductComponent implements OnInit {
     );
   }
 
- changeAvailability(produit:any){
-   this.ps.disponible(produit).subscribe(()=>{
-    this.getProducts();
-    console.log("change disponibilité");
-  });
- }
+  changeAvailability(produit: any) {
+    this.ps.disponible(produit).subscribe(() => {
+      this.getProducts();
+      console.log("change disponibilité");
+    });
+  }
+
+  searchByPrice(price_prod: any) {
+    let data = price_prod.value
+    this.ps.searchByPriceService(data).subscribe(data => {
+      this.products = data;
+      // console.log(this.products);
+    });
+  }
+
 }
