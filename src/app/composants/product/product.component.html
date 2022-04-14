@@ -1,0 +1,76 @@
+<div class="container">
+    <h1 class="text-center text-warning mt-4 mb-4">La liste de mes produits : {{products.length}}</h1>
+
+    <!-- <div *ngFor="let produit of products">
+        <p>
+            {{produit.title}}
+        </p>
+    </div> -->
+    <div class="row">
+        <div class="col-6">
+            <h6 class="text-info text-center mb-4">Rechercher par tranche de prix</h6>
+            <!-- *******************************Début du formulaire de recherche par prix *****************************-->
+            <form>
+                <div class="row">
+                    <div class="col-4">
+                        <input type="number" class="form-control" placeholder="Prix minimal">
+                    </div>
+                    <div class="col-4">
+                        <input type="number" class="form-control" placeholder="Prix maximal">
+                    </div>
+                    <div class="col-4 text-center">
+                        <button type="submit" class="btn btn-primary">Recherche</button>
+                    </div>
+                </div>
+            </form>
+            <!-- ******************************Fin du formulaire de recherche par prix ****************************** -->
+        </div>
+        <div class="col-6">
+            <h6 class="text-info text-center mb-4">Rechercher par une mot-clés</h6>
+            <!-- *******************************Début du formulaire de recherche par mot-clés *****************************-->
+            <form>
+                <div class="row">
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="Mot-clé">
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary">Recherche</button>
+                    </div>
+                </div>
+            </form>
+            <!-- ******************************Fin du formulaire de recherche par mot-clés ****************************** -->
+        </div>
+    </div>
+    <section class="row">
+        <div class="text-center ml-4 mb-4 pl-4 pb-4 bg-success " *ngIf="afficher">Le produit est supprimé</div>
+
+        <div class="col-4" style="height: 500px;" *ngFor="let produit of products">
+            <img src="{{produit.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{produit.title}}</h5>
+                <p class="card-text fs-6 fw-light">{{produit.description}}</p>
+
+                <div class="row">
+                    <div class="col-4">
+                        <a href="#" class="btn btn-primary">{{produit.price}} €/kg</a>
+                    </div>
+                    <div class="col-4">
+                        <i class="fa-solid " (click)="changeAvailability(produit)"
+                            [ngClass]="{'text-success fa-thumbs-up' : produit.available, 'text-danger fa-thumbs-down': !produit.available}">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <!-- Disponibilité : {{produit.available}} -->
+                        </i>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-danger" (click)="deleteProduct(produit.id)">Supprimer</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
