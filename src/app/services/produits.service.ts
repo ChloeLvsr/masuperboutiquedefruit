@@ -32,4 +32,8 @@ export class ProduitsService {
     let price_max = data.price_max;
     return this.http.get("http://localhost:3000/products?price_gte=" + price_min + "&price_lte="+ price_max);
   }
+  searchByWordService(data: any){
+    let word_search = data.word_search;
+    return this.http.get("http://localhost:3000/products?q=" + word_search);
+  }
 }

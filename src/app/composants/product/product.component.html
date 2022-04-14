@@ -1,4 +1,4 @@
-<div class="container bg-($orange-100)">
+<div class="container bg-warning bg-opacity-10">
     <h1 class="text-center text-warning mt-4 mb-4">La liste : {{products.length}} fruits différents</h1>
 
     <!-- <div *ngFor="let produit of products">
@@ -28,10 +28,10 @@
         <div class="col-6">
             <h6 class="text-info text-center mb-4">Rechercher par mot-clés</h6>
             <!-- *******************************Début du formulaire de recherche par mot-clés *****************************-->
-            <form>
+            <form (ngSubmit)="searchByWord(word_prod)" #word_prod="ngForm">
                 <div class="row">
                     <div class="col-8">
-                        <input type="text" class="form-control" placeholder="Mot-clé(s)">
+                        <input type="text" class="form-control" name="word_search" ngModel placeholder="Mot-clé(s)">
                     </div>
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary">Recherche</button>
@@ -41,10 +41,10 @@
             <!-- ******************************Fin du formulaire de recherche par mot-clés ****************************** -->
         </div>
     </div>
-    <section class="row mt-12">
+    <section class="row">
         <div class="text-center ml-4 mb-4 pl-4 pb-4 bg-success " *ngIf="afficher">Le produit est supprimé</div>
 
-        <div class="col-4 ml-4 mb-4 mt-4 mr-4" style="height: 500px;" *ngFor="let produit of products">
+        <div class="col-4 pe-4 mb-4 mt-4 pd-4 bg-white" style="height: 500px;" *ngFor="let produit of products">
             <img src="{{produit.image}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{produit.title}}</h5>

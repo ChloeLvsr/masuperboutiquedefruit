@@ -46,4 +46,11 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  searchByWord(word_prod: any) {
+    let data = word_prod.value
+    this.ps.searchByWordService(data).subscribe(data => {
+      this.products = data;
+      // console.log(this.products);
+    });
+  }
 }
