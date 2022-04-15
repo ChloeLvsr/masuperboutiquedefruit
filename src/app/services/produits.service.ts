@@ -36,4 +36,13 @@ export class ProduitsService {
     let word_search = data.word_search;
     return this.http.get("http://localhost:3000/products?q=" + word_search);
   }
+
+  updateProductService(formData: any){
+    return this.http.patch("http://localhost:3000/products/"+ formData.id, formData);
+  }
+
+
+
+
+
 }

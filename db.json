@@ -5,7 +5,7 @@
       "title": "Fraise",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "image": "https://img-3.journaldesfemmes.fr/LFYLLU8JV163I7rcv9-y_SrLuTs=/910x607/smart/e2d84215f5c44c648c3ecdcbf0ac1ccc/ccmcms-jdf/10662418.jpg",
-      "price": 22,
+      "price": 24,
       "available": true
     },
     {
@@ -240,6 +240,5 @@
       "id": 30,
       "available": true
     }
-
   ]
 }

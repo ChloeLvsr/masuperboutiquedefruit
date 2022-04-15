@@ -10,6 +10,14 @@ export class ProductComponent implements OnInit {
   products: any;
   afficher: boolean = false;
   constructor(private ps: ProduitsService) { }
+  edit_product = {
+    title: "",
+    description: "",
+    image: "",
+    price: 0,
+    available: false
+  }
+
 
   ngOnInit(): void {
     this.getProducts();
@@ -53,4 +61,17 @@ export class ProductComponent implements OnInit {
       // console.log(this.products);
     });
   }
+
+  editProduct(formData: any) {
+    this.edit_product = formData;
+    console.log(this.edit_product);
+  }
+
+  updateProduct() {
+    // console.log(this.edit_product);
+    this.ps.updateProductService(this.edit_product).subscribe(() => {
+      console.log("Coucou Mamie !")
+    });
+  }
+
 }
