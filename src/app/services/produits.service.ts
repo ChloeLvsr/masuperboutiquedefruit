@@ -6,7 +6,7 @@ import { ProductComponent } from '../composants/product/product.component';
   providedIn: 'root'
 })
 export class ProduitsService {
-
+  isAuthotified = false;
   constructor(private http: HttpClient) { }
 
   getProducts() {

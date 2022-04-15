@@ -16,10 +16,11 @@ export class ProductComponent implements OnInit {
     image: "",
     price: 0,
     available: false
-  }
-
+  };
+  isAuth = this.ps.isAuthotified;
 
   ngOnInit(): void {
+    this.isAuth;
     this.getProducts();
   }
 
